@@ -113,7 +113,7 @@ for (var i = 0; i < (finances.length - 1); i++) {
 // maybe put all the changes into an array? using .push(...) ?
 
 
-console.log("Average Change: $" + averageChange + " .");
+console.log("Average Change: $" + averageChange.toFixed(2));
 
 console.table(averageChange);
 
