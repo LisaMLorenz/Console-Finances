@@ -103,19 +103,32 @@ console.log("Total: $" + total);
 // The average of the **changes** in Profit/Losses over the entire period.
 
 var averageChange = 0;
+var change = [];
 
 for (var i = 0; i < (finances.length - 1); i++) {
-    averageChange = ((finances[i++][1] - finances[i][1])) / finances.length - 1; // Result of Line 2 minus Line 1 // loop this up // divide by total months
-
+    averageChange = ((finances[i++][1] - finances[i][1]) / finances.length - 1); // Result of Line 2 minus Line 1 // loop this up // divide by total months
+    change.push(averageChange).toFixed(2); //     change.push;
+    // averageChange += changes;
 }
-
-// (Total/total number of changes) ===> total change/(months - 1)
-// maybe put all the changes into an array? using .push(...) ?
-
 
 console.log("Average Change: $" + averageChange.toFixed(2));
 
 console.table(averageChange);
+
+// var averageChange = 0;
+// var changes = [];
+
+// for (var i = 0; i < (finances.length); i++) {
+//     averageChange += (finances[i][1]);
+//     if (i != 0) {
+//         var sumChange = finances[i][1] - finances[i - 1][1]; // Result of Line 2 minus Line 1
+//         changes.push(sumChange).toFixed(2);
+//         averageChange += sumChange;
+//     }
+//         console.log("Average Change: $" + (averageChange/(finances.length - 1)).toFixed(2));
+
+      
+// (Total/total number of changes) ===> total change/(months - 1)
 
 // Stuff that didn't work
 
@@ -124,7 +137,7 @@ console.table(averageChange);
 // for (var i = 0; i < (finances.length - 1); i++) {
 //     change = ((finances[i][1] - finances[i++][1]));
 //     averageChange = change / finances.length
-//     change.push;
+
 // }
 
 
