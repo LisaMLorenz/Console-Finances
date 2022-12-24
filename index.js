@@ -102,57 +102,24 @@ console.log("Total: $" + total);
 
 // The average of the **changes** in Profit/Losses over the entire period.
 
-var averageChange = 0;
-var change = [];
 
-for (var i = 0; i < (finances.length - 1); i++) {
-    averageChange = ((finances[i++][1] - finances[i][1]) / finances.length - 1); // Result of Line 2 minus Line 1 // loop this up // divide by total months
-    change.push(averageChange).toFixed(2); //     change.push;
-    // averageChange += changes;
+var averageChange = 0;
+
+for (var i = 0; i < finances.length; i++) {
+
+    if (i < finances.length - 1) {
+        var currentMonth = (finances[i][1]); // got a strange result because substracting two negative values wouldn't get you the differnce so added these if statements
+        var nextMonth = (finances[i + 1][1]);
+
+        if (currentMonth < 0 && nextMonth < 0) {
+            nextMonth = nextMonth * 1;
+        }
+
+        var change = (nextMonth - currentMonth); // this only works if both values are positive
+        averageChange += change;
+    }
 }
 
-console.log("Average Change: $" + averageChange.toFixed(2));
+var average = averageChange / finances.length;
 
-console.table(averageChange);
-
-// var averageChange = 0;
-// var changes = [];
-
-// for (var i = 0; i < (finances.length); i++) {
-//     averageChange += (finances[i][1]);
-//     if (i != 0) {
-//         var sumChange = finances[i][1] - finances[i - 1][1]; // Result of Line 2 minus Line 1
-//         changes.push(sumChange).toFixed(2);
-//         averageChange += sumChange;
-//     }
-//         console.log("Average Change: $" + (averageChange/(finances.length - 1)).toFixed(2));
-
-      
-// (Total/total number of changes) ===> total change/(months - 1)
-
-// Stuff that didn't work
-
-// var averageChange = 0;
-
-// for (var i = 0; i < (finances.length - 1); i++) {
-//     change = ((finances[i][1] - finances[i++][1]));
-//     averageChange = change / finances.length
-
-// }
-
-
-
-// var averageChange = 0;
-
-// for (var i = 0; i < (finances.length - 1); i++) {
-//     averageChange = ((finances[i][1] - finances[i++][1])) / finances.length;
-//     averageChange.push;
-// }
-
-
-// while (total != finances.length)
-//     for (var i = 0; i < finances.length; i++) {
-//         averageAverage = (finances[i++][1] - finances[i][1]) / finances.length;
-//     }
-
-//     console.log(averageAverage)
+console.log("Average Change: $" + (average).toFixed(2));
