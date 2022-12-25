@@ -98,28 +98,65 @@ var total = 0;
 for (var i = 0; i < finances.length; i++) {
     total = total + finances[i][1];
 }
+
 console.log("Total: $" + total);
 
 // The average of the **changes** in Profit/Losses over the entire period.
 
+var changesBetween = [];
+
+for (var i = 0; i < finances.length - 1; i++) {
+    changesBetween.push(finances[i + 1][1] - finances[i][1]);
+}
 
 var averageChange = 0;
 
-for (var i = 0; i < finances.length; i++) {
-
-    if (i < finances.length - 1) {
-        var currentMonth = (finances[i][1]); // got a strange result because substracting two negative values wouldn't get you the differnce so added these if statements
-        var nextMonth = (finances[i + 1][1]);
-
-        if (currentMonth < 0 && nextMonth < 0) {
-            nextMonth = nextMonth * 1;
-        }
-
-        var change = (nextMonth - currentMonth); // this only works if both values are positive
-        averageChange += change;
-    }
+for (var i = 0; i < changesBetween.length; i++) {
+    averageChange += changesBetween[i];
 }
 
-var average = averageChange / finances.length;
+var average = averageChange / changesBetween.length;
 
 console.log("Average Change: $" + (average).toFixed(2));
+
+// Work I did with Juan but it didn't quite work sadly
+// var averageChange = 0;
+
+// for (var i = 0; i < finances.length; i++) {
+
+//     if (i < finances.length - 1) {
+//         var currentMonth = (finances[i][1]); // got a strange result because substracting two negative values wouldn't get you the differnce so added these if statements
+//         var nextMonth = (finances[i + 1][1]);
+
+//         if (currentMonth < 0 && nextMonth < 0) {
+//             nextMonth = nextMonth * 1;
+//         }
+
+//         var change = (nextMonth - currentMonth); // this only works if both values are positive
+//         averageChange += change;
+//     }
+// }
+
+// var average = averageChange / finances.length;
+
+// console.log("Average Change: $" + (average).toFixed(2));
+
+
+// change.unshift(0);
+//  for (var i = 1; i < finances.length; i++) {
+//     finances[i].push(change[i]);
+//   }
+//     calculating the max profit and displaying the corresponding month
+//             for(var i = 0; i< finances.length; i++){
+//                 var max = Math.max(...change);
+//                 if (finances[i][2] === max){
+//                     console.log("Greatest Increase in Profits: " + finances[i][0]+ " ($" + finances[i][2] +")");
+//                 }
+//         }
+
+//         for(var i = 0; i< finances.length; i++){
+//             var min = Math.min(...change);
+//             if (finances[i][2] === min){
+//                 console.log("Greatest Decrease in Profits: " + finances[i][0]+ " ($" + finances[i][2] +")");
+//             }
+//     }
