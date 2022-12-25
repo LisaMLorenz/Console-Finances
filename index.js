@@ -103,15 +103,15 @@ console.log("Total: $" + total);
 
 // The average of the **changes** in Profit/Losses over the entire period.
 
-var changesBetween = [];
+var changesBetween = []; // new array to gather the results of differnces between each line
 
 for (var i = 0; i < finances.length - 1; i++) {
-    changesBetween.push(finances[i + 1][1] - finances[i][1]);
+    changesBetween.push(finances[i + 1][1] - finances[i][1]); // pushing it into the new array
 }
 
 var averageChange = 0;
 
-for (var i = 0; i < changesBetween.length; i++) {
+for (var i = 0; i < changesBetween.length; i++) { // adding up the changes to calculate the average
     averageChange += changesBetween[i];
 }
 
