@@ -24,9 +24,10 @@ https://lisamlorenz.github.io/Console-Finances/
 - the greatest decrease in profits (date and amount) over the entire period
 
 ### Screenshot
-[screenshot](./Screenshots/deployedscreenshotfinal.png)
+[Click here to see the deployed sit screenshot](./Screenshots/deployedscreenshotfinal.png)
 
-## Credits
+
+## Credits
 N/A
 
 ## License
