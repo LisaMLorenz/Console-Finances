@@ -90,6 +90,10 @@ var finances = [
 // display the table
 console.table(finances);
 
+console.log("Financial Analysis"); // printing the titel in the console
+console.log("----------------------------"); // printing a dashed line in the console
+
+
 // the number of months
 console.log("Total Months: " + finances.length);
 
@@ -99,7 +103,7 @@ for (var i = 0; i < finances.length; i++) {
     total = total + finances[i][1];
 }
 
-console.log("Total: $" + total);
+console.log("Total: $" + total); // printing the total in the console
 
 // The average of the **changes** in Profit/Losses over the entire period.
 
@@ -115,9 +119,31 @@ for (var i = 0; i < changesBetween.length; i++) { // adding up the changes to ca
     averageChange += changesBetween[i];
 }
 
-var average = averageChange / changesBetween.length;
+var average = averageChange / changesBetween.length; //calculating average change by months
 
-console.log("Average Change: $" + (average).toFixed(2));
+console.log("Average Change: $" + (average).toFixed(2)); //toFixed to limit to 2 decimals
+
+
+for (var i = 1; i < finances.length; i++) {
+    finances[i].push(changesBetween[i]); // adding values to table to track changes and find min and max and related month
+}
+// calculating the max profit and displaying the corresponding month
+for (var i = 0; i < finances.length; i++) {
+    var max = Math.max(...changesBetween);
+    if (finances[i][2] === max) {
+        console.log("Greatest Increase in Profits: " + finances[i+1][0] + " ($" + Math.max(...changesBetween)+")");
+    }
+}
+
+// calculating the min profit and displaying the corresponding month
+for (var i = 0; i < finances.length; i++) {
+    var min = Math.min(...changesBetween);
+    if (finances[i][2] === min) {
+        console.log("Greatest Decrease in Profits: " + finances[i+1][0] +  " ($" + Math.min(...changesBetween)+")");
+    }
+}
+
+
 
 // Work I did with Juan but it didn't quite work sadly
 // var averageChange = 0;
@@ -140,23 +166,3 @@ console.log("Average Change: $" + (average).toFixed(2));
 // var average = averageChange / finances.length;
 
 // console.log("Average Change: $" + (average).toFixed(2));
-
-
-// change.unshift(0);
-//  for (var i = 1; i < finances.length; i++) {
-//     finances[i].push(change[i]);
-//   }
-//     calculating the max profit and displaying the corresponding month
-//             for(var i = 0; i< finances.length; i++){
-//                 var max = Math.max(...change);
-//                 if (finances[i][2] === max){
-//                     console.log("Greatest Increase in Profits: " + finances[i][0]+ " ($" + finances[i][2] +")");
-//                 }
-//         }
-
-//         for(var i = 0; i< finances.length; i++){
-//             var min = Math.min(...change);
-//             if (finances[i][2] === min){
-//                 console.log("Greatest Decrease in Profits: " + finances[i][0]+ " ($" + finances[i][2] +")");
-//             }
-//     }
