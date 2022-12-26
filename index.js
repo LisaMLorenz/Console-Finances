@@ -88,7 +88,7 @@ var finances = [
 ];
 
 // display the table
-console.table(finances);
+//console.table(finances);
 
 console.log("Financial Analysis"); // printing the titel in the console
 console.log("----------------------------"); // printing a dashed line in the console
