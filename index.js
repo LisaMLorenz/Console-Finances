@@ -131,7 +131,7 @@ for (var i = 1; i < finances.length; i++) {
 for (var i = 0; i < finances.length; i++) {
     var max = Math.max(...changesBetween);
     if (finances[i][2] === max) {
-        console.log("Greatest Increase in Profits: " + finances[i+1][0] + " ($" + Math.max(...changesBetween)+")");
+        console.log("Greatest Increase in Profits: " + finances[i + 1][0] + " ($" + Math.max(...changesBetween) + ")");
     }
 }
 
@@ -139,7 +139,7 @@ for (var i = 0; i < finances.length; i++) {
 for (var i = 0; i < finances.length; i++) {
     var min = Math.min(...changesBetween);
     if (finances[i][2] === min) {
-        console.log("Greatest Decrease in Profits: " + finances[i+1][0] +  " ($" + Math.min(...changesBetween)+")");
+        console.log("Greatest Decrease in Profits: " + finances[i + 1][0] + " ($" + Math.min(...changesBetween) + ")");
     }
 }
 
